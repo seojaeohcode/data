@@ -1,0 +1,29 @@
+파이썬 최신정보로 업그레이드.
+pip install --upgrade pip
+
+파이썬 버전확인
+pip --version
+
+장고 설치
+pip install Django
+
+장고 위치(삭제할 때 파일 날리기)
+python -c "import django; print(django.__path__)"
+['C:\\Users\\han04\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\django']
+
+장고 업그레이드
+pip install Django --upgrade
+
+가상환경(버전을 여러개 쓸 수 있다.)
+
+프로젝트 만들기
+django-admin startproject bproject
+
+앱 만들기
+python manage.py startapp company
+
+서버런
+python manage.py runserver
+
+ctrl+c => 터미널 빠져나오기
+win+r => 실행기(cmd)

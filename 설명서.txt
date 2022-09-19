@@ -1,0 +1,15 @@
+mvc mvt
+
+db => model
+
+제일 먼저 할 것.
+프로젝트의 세팅의 INSTALLED_APPS에 만든 앱 기입(연결).
+
+# 개발모드 , 운영모드 DEBUG = False
+DEBUG = True
+
+#192.168.0.66
+#[localhost, '127.0.0.1'] 디폴트 값이라 넣어놓을 필요가 없다.
+ALLOWED_HOSTS = []
+
+render = html 페이지호출
