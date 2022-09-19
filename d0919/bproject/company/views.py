@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def company(request):
-    return render(request,'company.html')
+def ceo(request):
+    return render(request,'ceo.html')
+
+def philosophy(request):
+    return render(request, 'philosophy.html')
