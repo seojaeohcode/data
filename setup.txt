@@ -27,3 +27,16 @@ python manage.py runserver 0.0.0.0:8000(생략)
 
 ctrl+c => 터미널 빠져나오기
 win+r => 실행기(cmd)
+
+DB
+admin
+codecode
+
+마이그레이션(반영사항 저장)
+python manage.py migrations
+
+계정생성 전 마이그레이트
+python manage.py migrate
+
+계정생성
+python manage.py createsuperuser
