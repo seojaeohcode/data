@@ -23,7 +23,7 @@ django-admin startproject bproject
 python manage.py startapp company
 
 서버런
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000(생략)
 
 ctrl+c => 터미널 빠져나오기
 win+r => 실행기(cmd)
