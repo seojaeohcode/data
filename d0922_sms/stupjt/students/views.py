@@ -1,3 +1,4 @@
+import re
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -21,3 +22,10 @@ def stuWriteOk(request):
     print("write Ok!!")
     
     return HttpResponseRedirect(reverse('index'))
+
+def stuList(request):
+    qs = Student.objects.all()
+    #역순정렬로 데이터 받아오기 qs = Student.objects.order_by('-s_no')
+    count = qs.count()
+    context = {'stuList':qs, 'count':count}#dic타입으로 전송
+    return render(request, 'stuList.html', context)
