@@ -4,14 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인페이지</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생등록페이지</title>
+    <script>
+        function submitbtn(){
+            if($("#name").val()==''){
+                alert('데이터가 있어야 됩니다.')
+                $("#name").focus()
+                return false;
+            }
+            else if($("#major").val()==''){
+                alert('데이터가 있어야 됩니다.')
+                $("#major").focus()
+                return false;
+            }
+            else if($("#age").val()==''){
+                alert('데이터가 있어야 됩니다.')
+                $("#age").focus()
+                return false;
+            }
+            else if($("#grade").val()==''){
+                alert('데이터가 있어야 됩니다.')
+                $("#grade").focus()
+                return false;
+            }
+            //$('input:radio[name=male]').is(':checked');
+            
+            if($("input[type=radio][name='gender']:checked").is(':checked')){
+                alert('체크되어 있습니다.')
+            }else{
+                alert('체크되어 있지 않습니다.')
+            }
+            return document.frm.submit()
+        }
+
+        function cancel(){
+            location.href = "{% url 'index' %}"
+        }
+    </script>
 </head>
 <body>
     <h2>학생등록페이지</h2>
-    <form action="" method="post" name="frm">
+    <form action="{% url 'students:stuWriteOk' %}" method="post" name="frm">
+        {% csrf_token %}
         <label>학생이름</label>
-        <input type="text" name="name"><br>
+        <input type="text" id="name" name="name"><br>
         
+        <label>학과</label>
+        <input type="text" id="major" name="major"><br>
+        
+        <label>나이</label>
+        <input type="text" id="age" name="age"><br>
+        
+        <label>학년</label>
+        <input type="text" id="grade" name="grade"><br>
+
+        <label>성별</label><br>
+        <input type="radio" name="gender" id="male" value="남자">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="여자">
+        <label for="female">여자</label>
+        
+        <button type="button" onclick="submitbtn()">저장</button>
+        <button type="button" onclick="cancel()">취소</button>
+        <br>
     </form>
 </body>
 </html>
