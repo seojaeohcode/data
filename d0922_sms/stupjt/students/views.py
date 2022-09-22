@@ -1,4 +1,3 @@
-import re
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -29,3 +28,9 @@ def stuList(request):
     count = qs.count()
     context = {'stuList':qs, 'count':count}#dic타입으로 전송
     return render(request, 'stuList.html', context)
+
+def stuView(request,s_no):
+    print("학생상세페이지 : "+s_no)
+    qs = Student.objects.get(s_no=s_no)
+    context = {'stu':qs}
+    return render(request, 'stuView.html', context)

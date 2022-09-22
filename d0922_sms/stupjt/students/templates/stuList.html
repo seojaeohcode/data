@@ -10,34 +10,42 @@
         div{width:800px; margin:50px auto;}
         table,th,td{border:1px solid black; border-collapse:collapse;}
         table{width:750px; text-align:center}
+        h2{width:750px; height:50px; text-align:center}
+        h4{width:750px; height:40px; text-align:right}
         th{width:100px; height:40px; background:#eee;}
         td{height:30px;}
+        .cbutton{width:700px; margin:20px auto; text-align:center;}
+        button{cursor: pointer;}
     </style>
 </head>
 <body>
 <div>
     <h2>학생전체리스트</h2>
-    <h4>학생인원 : 100 명</h4>
+    <h4>학생인원 : {{ count }} 명</h4>
     <table>
         <tr>
             <th>번호</th>
             <th>학생이름</th>
             <th>학과</th>
-            <th>나이</th>
-            <th>학년</th>
-            <th>성별</th>
             <th>등록일</th>
         </tr>
+        {% for stu in stuList %}
         <tr>
-            <td>1</td>
-            <td>홍길동</td>
-            <td>체육과</td>
-            <td>12</td>
-            <td>6</td>
-            <td>남자</td>
-            <td>2022-09-22</td>
+            <td>{{stu.s_no}}</td>
+            {% comment %} url 보낼장소 보낼 데이터 {% endcomment %}
+            <td><a href={% url 'students:stuView' stu.s_no %}>{{stu.s_name}}</a></td>
+            <td>{{stu.s_major}}</td>
+            {% comment %} <td>{{stu.s_age}}</td> {% endcomment %}
+            {% comment %} <td>{{stu.s_grade}}</td> {% endcomment %}
+            {% comment %} <td>{{stu.s_gender}}</td> {% endcomment %}
+            <td>{{stu.s_date}}</td>
         </tr>
+        {% endfor %}
     </table>
+    <div class="cbutton">
+        <a href="{% url 'students:stuWrite' %}"><button>학생등록</button></a>
+        <a href="{% url 'index' %}"><button>메인페이지</button></a>
+    </div>
 </div>
 </body>
 </html>

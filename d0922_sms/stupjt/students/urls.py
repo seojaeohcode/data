@@ -9,4 +9,6 @@ urlpatterns = [
     path('stuWriteOk/',views.stuWriteOk,name='stuWriteOk'),
     # 학생전체
     path('stuList/',views.stuList,name='stuList'),
+    # 상세페이지
+    path('<str:s_no>/stuView/',views.stuView,name='stuView'),
 ]
